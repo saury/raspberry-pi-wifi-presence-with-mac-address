@@ -10,7 +10,7 @@ Work with [homebridge-wifipresence](https://github.com/llun/homebridge-wifiprese
 
 * Execute `arp -a > temp.txt && node macParser.js` for single run 
 
-* Add it in crontab list of device like rpi as `*/1 * * * * $ENV_PATH/arp -a > temp.txt && $ENV_PATH/node macParser.js`
+* Add it in crontab list of device like rpi as `*/1 * * * * $ENV_PATH/arp -a > $FULL_PATH/temp.txt && $ENV_PATH/node $FULL_PATH/macParser.js`
 
 ## Export file:
 
