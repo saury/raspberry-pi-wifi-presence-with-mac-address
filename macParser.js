@@ -1,11 +1,11 @@
 const fs = require("fs");
 const path = require("path");
 
-fs.readFile(path.join(__dirname, "temp.txt"), "utf8", function(err, data) {
+fs.readFile("/proc/net/arp", "utf8", (err, data) => {
     if (err) throw err;
     
     // match mac address
-    var result = data.match(/([A-Fa-f0-9]{2}:){5}[A-Fa-f0-9]{2}/gi);
+    let result = data.match(/([A-Fa-f0-9]{2}:){5}[A-Fa-f0-9]{2}/gi);
     result = result.join("\n");
 
     // write result to presence.wifi
@@ -13,7 +13,7 @@ fs.readFile(path.join(__dirname, "temp.txt"), "utf8", function(err, data) {
         path.join(__dirname, "presence.wifi"),
         result,
         "utf8",
-        function(err) {
+        (err) => {
             if (err) throw err;
         }
     );
